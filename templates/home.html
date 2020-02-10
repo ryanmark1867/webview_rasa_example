@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movie Molly webview</title>
+    <title>Sample webview</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
   </head>
 <body>
@@ -15,23 +15,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
 </script>
-<!-- attempt to set up REST call to Rasa server directly from web page
-<script type="text/javascript">
-const userAction = async () => {
-  const response = await fetch(api_endpoint, {
-    method: 'POST',
-	// body: myBody,
-    body: 'list movies starring Stewart Granger', // string or object
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-  const myJson = await response.json(); //extract JSON from the http response
-  // do something with myJson
-}
-</script>
--->
-<!-- code to control closing the page on click per https://stackoverflow.com/questions/688196/how-to-use-a-link-to-call-javascript-->
+
 <script type="text/javascript">
         // Wait for the page to load first
         window.onload = function() {
