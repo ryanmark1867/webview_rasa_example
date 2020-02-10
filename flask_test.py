@@ -47,6 +47,12 @@ def package_list(key_name,list_in):
 @app.route('/')
 def homepage():   
     graphic_example = "https://raw.githubusercontent.com/ryanmark1867/webview_rasa_example/master/media/Flag_of_Ontario.svg"
+    username = request.args.get('username')
+    password = request.args.get('password')
+    image = request.args.get('image')
+    description = request.args.get('description')
+    province = request.args.get('province')
+    title_text = "Flag of "+province
     title = {'titlename':str(title_display)}
     graphic = {'graphicname':graphic_example}
     return """<h1>Test of web page Feb 9 night</h1>"""

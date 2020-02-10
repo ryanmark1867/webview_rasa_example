@@ -18,6 +18,7 @@ logging.warning("logging check")
 current_path = os.getcwd()
 directory_symbol = "\\"
 
+# load the config file
 path_to_yaml = current_path+directory_symbol+"custom_action_config.yml"
 logging.warning("path_to_yaml "+path_to_yaml)
 try: 
@@ -25,7 +26,9 @@ try:
        config = yaml.safe_load(file)
 except Exception as e:
     print('Error reading the config file')
-wv_URL = 
+for images in config['images']:
+    
+wv_URL = config['general']['wv_url']
 
 class ActionHelloWorld(Action):
 #
@@ -35,31 +38,25 @@ class ActionHelloWorld(Action):
      def run(self, dispatcher: CollectingDispatcher,
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        target_URL = wv_URL
-            #target_URL = "https://cbc.ca"
+            province = "ontario"
+            # build target_URL
+            target_URL_suffix = "?image="+config['images'][province]+"&description="+config['descriptions'][province]+"&province="+province
+            target_URL = wv_URL+target_URL_suffix
             logging.warning("target_URL is "+str(target_URL))
             # want to make call to build display object here
             # TODO post demo 1, generalize this to be any key_slot rather than just original_title
-            wv_payload = get_wv_payload('original_title',raw_movie)
-            for wv_payload_index in wv_payload:
-                logging.warning("wv_payload index is "+str(wv_payload_index))
-                logging.warning("display content is "+str(wv_payload[wv_payload_index].display_content))
-                logging.warning("display type is "+str(wv_payload[wv_payload_index].display_type))
-                logging.warning("return type is "+str(wv_payload[wv_payload_index].return_type))
-                logging.warning("return payload is "+str(wv_payload[wv_payload_index].return_payload))
-            # pass wv_payload to flask
-            load_wv_payload(wv_payload)
+            
             message1 = {
                "attachment": {
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      "text": "Test URL button for webview",
+                      "text": province,
                       "buttons": [
                         {
                            "type":"web_url",
                            "url":target_URL,
-                           "title":"URL Button",
+                           "title": province,
                            "messenger_extensions": "true",
                            "webview_height_ratio": "tall"
                         }
@@ -68,6 +65,7 @@ class ActionHelloWorld(Action):
                }
             }
 
-         dispatcher.utter_message("Hello World!")
+            dispatcher.utter_custom_json(message1)
+            dispatcher.utter_message("COMMENT - past posting to FM Jan 31")
 
          return []
