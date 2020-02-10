@@ -11,6 +11,10 @@
 - show me [ontario](province)
 - show me [Quebec](province:quebec)
 - show me [quebec](province)
+- [Ontario](province:ontario)
+- [ontario](province)
+- [Quebec](province:quebec)
+- [quebec](province)
 
 
 

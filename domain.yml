@@ -6,6 +6,9 @@ intents:
   - mood_great
   - mood_unhappy
   - province_back
+
+entities:
+- province
   
 slots:
   province:

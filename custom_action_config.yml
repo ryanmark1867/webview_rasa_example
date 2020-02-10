@@ -1,6 +1,6 @@
 images:
-    ontario: "https://github.com/ryanmark1867/webview_rasa_example/blob/master/media/ontario_flag.png?raw=true"
-    quebec: "https://github.com/ryanmark1867/webview_rasa_example/blob/master/media/quebec_flag.png?raw=true"
+    ontario: https://github.com/ryanmark1867/webview_rasa_example/blob/master/media/ontario_flag.png?raw=true
+    quebec: https://github.com/ryanmark1867/webview_rasa_example/blob/master/media/quebec_flag.png?raw=true
 descriptions:
     ontario: "The flag of Ontario is the provincial flag of Ontario, Canada. It is a defaced Red Ensign, with the Royal Union Flag in the canton and the Ontario shield of arms in the fly. The flag was introduced in 1965 in the wake of lengthy debates on replacing the Canadian Red Ensign with a new national flag."
     quebec: "The flag of Quebec, called the Fleurdelisé (the Lily-flower) represents the Canadian province of Quebec. It consists of a white cross on a blue background, with four white fleurs-de-lis."

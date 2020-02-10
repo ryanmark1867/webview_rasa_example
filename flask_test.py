@@ -50,6 +50,8 @@ def homepage():
     image_URL = request.args.get('image')
     description_text = request.args.get('description')
     province = request.args.get('province')
+    print("image_URL is "+str(image_URL))
+    print("province is "+str(province))
     title_text = "Flag of "+province
     title = {'titlename':title_text}
     image = {'graphicname':image_URL}

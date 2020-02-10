@@ -1,9 +1,10 @@
 ## happy path
 * greet
   - utter_greet
-* province_back
+* province_back{"province":"ontario"}
+  - slot{"province":"ontario"}
   - action_province_back
-
+  
 ## sad path 1
 * greet
   - utter_greet
