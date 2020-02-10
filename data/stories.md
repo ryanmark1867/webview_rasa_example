@@ -1,8 +1,8 @@
 ## happy path
 * greet
   - utter_greet
-* mood_great
-  - utter_happy
+* province_back
+  - action_province_back
 
 ## sad path 1
 * greet

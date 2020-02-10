@@ -8,6 +8,7 @@ from rasa_core_sdk.executor import CollectingDispatcher
 import yaml
 import pickle
 import logging
+import os
 #
 
 # set up logging
@@ -26,25 +27,25 @@ try:
        config = yaml.safe_load(file)
 except Exception as e:
     print('Error reading the config file')
-for images in config['images']:
+
     
 wv_URL = config['general']['wv_url']
 
-class ActionHelloWorld(Action):
+class ActionProvinceBack(Action):
 #
      def name(self) -> Text:
-         return "action_hello_world"
+         return "action_province_back"
 
      def run(self, dispatcher: CollectingDispatcher,
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            province = "ontario"
+            province = tracker.get_slot('province')
             # build target_URL
             target_URL_suffix = "?image="+config['images'][province]+"&description="+config['descriptions'][province]+"&province="+province
             target_URL = wv_URL+target_URL_suffix
             logging.warning("target_URL is "+str(target_URL))
-            # want to make call to build display object here
-            # TODO post demo 1, generalize this to be any key_slot rather than just original_title
+            # build JSON to be sent to Facebook Messenger based on province provided in Rasa chat
+            
             
             message1 = {
                "attachment": {
@@ -64,8 +65,8 @@ class ActionHelloWorld(Action):
                   }
                }
             }
-
+            # send payload to Facebook Messenger and echo confirmation
             dispatcher.utter_custom_json(message1)
-            dispatcher.utter_message("COMMENT - past posting to FM Jan 31")
+            dispatcher.utter_message("COMMENT - past posting to FM")
 
-         return []
+            return []

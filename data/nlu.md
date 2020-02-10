@@ -6,6 +6,14 @@
 - good evening
 - hey there
 
+## intent:province_back
+- show me [Ontario](province:ontario)
+- show me [ontario](province)
+- show me [Quebec](province:quebec)
+- show me [quebec](province)
+
+
+
 ## intent:goodbye
 - bye
 - goodbye
