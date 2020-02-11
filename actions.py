@@ -52,7 +52,7 @@ class ActionProvinceBack(Action):
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      "text": province,
+                      "text": "click below to open webview",
                       "buttons": [
                         {
                            "type":"web_url",
@@ -67,6 +67,4 @@ class ActionProvinceBack(Action):
             }
             # send payload to Facebook Messenger and echo confirmation
             dispatcher.utter_custom_json(message1)
-            dispatcher.utter_message("COMMENT - past posting to FM")
-
             return []

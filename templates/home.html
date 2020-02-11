@@ -15,40 +15,12 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
 </script>
-
-<script type="text/javascript">
-        // Wait for the page to load first
-        window.onload = function() {
-
-          //Get a reference to the link on the page
-          // with an id of "mylink"
-          var a = document.getElementById("mylink");
-		  
-
-          //Set code to run when the link is clicked
-          // by assigning a function to "onclick"
-          a.onclick = function() {
-            MessengerExtensions.requestCloseBrowser(function success() {}, function failure(err) {
-			alert('error closing the window: ' + err); // error closing the window:
-			console.log(err); // doesn't print
-			window.close();
-			});
-            return false;
-          }
-		  
-         
-          }
-        }
-</script>
 <div class="home">
 <h1> {{ title.titlename }} </h1>
 <img style="padding: 0 15px; float: left;" src={{image.graphicname}} alt={{title.titlename}} width="318" height="159" border="0">
 <p style="margin-top: 20px;"> </p>
 <p> <b>Description:</b> 
 {{description.descriptionname}}
-</p>
-<p>
-<a id="mylink" href="{{url_for('homepage')}}">Close page</a>
 </p>
 </div>
 </body>
